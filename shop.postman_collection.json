@@ -21,7 +21,8 @@
 						"api",
 						"invoice"
 					]
-				}
+				},
+				"description": "show all invoices"
 			},
 			"response": []
 		},
@@ -41,7 +42,8 @@
 						"api",
 						"client"
 					]
-				}
+				},
+				"description": "show all clients"
 			},
 			"response": []
 		},
@@ -61,7 +63,8 @@
 						"api",
 						"product"
 					]
-				}
+				},
+				"description": "show all products"
 			},
 			"response": []
 		},
@@ -90,7 +93,8 @@
 						"api",
 						"invoice"
 					]
-				}
+				},
+				"description": "cost is lower than 70000, bad request"
 			},
 			"response": []
 		},
@@ -119,7 +123,38 @@
 						"api",
 						"invoice"
 					]
-				}
+				},
+				"description": "invoice of 85000 so shipping cost is added"
+			},
+			"response": []
+		},
+		{
+			"name": "buy_5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"buyer\": 12345,\n    \"address\": \"carrera 11# 14-08\",\n    \"products\": [\n        {\n            \"id\": 1,\n            \"name\": \"shirt\",\n            \"cost\": 40000.0\n        },\n        {\n            \"id\": 2,\n            \"name\": \"pants\",\n            \"cost\": 45000.0\n        },\n        {\n            \"id\": 3,\n            \"name\": \"tie\",\n            \"cost\": 10000.0\n        },\n        {\n            \"id\": 4,\n            \"name\": \"hat\",\n            \"cost\": 20000.0\n        },\n        {\n            \"id\": 5,\n            \"name\": \"shoes\",\n            \"cost\": 50000.0\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/invoice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"invoice"
+					]
+				},
+				"description": "invoice of more than 100000 so free shipping"
 			},
 			"response": []
 		},
@@ -148,7 +183,8 @@
 						"api",
 						"invoice"
 					]
-				}
+				},
+				"description": "change products on invoice 1 with less than 5 hours since invoice was generated and cost is greater than or equal to previous ones"
 			},
 			"response": []
 		},
@@ -177,7 +213,8 @@
 						"api",
 						"invoice"
 					]
-				}
+				},
+				"description": "failed to change products because its cost is lower than previous ones"
 			},
 			"response": []
 		},
@@ -207,7 +244,8 @@
 						"invoice",
 						"add"
 					]
-				}
+				},
+				"description": "add producto to invoice 1"
 			},
 			"response": []
 		},
@@ -236,7 +274,8 @@
 						"api",
 						"invoice"
 					]
-				}
+				},
+				"description": "delete invoice 1 with less than 12 hours since invoice was generated"
 			},
 			"response": []
 		}
